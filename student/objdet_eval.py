@@ -95,7 +95,7 @@ def measure_detection_performance(detections, labels, labels_valid, min_iou=0.5)
 
 
 # evaluate object detection performance based on all frames
-def compute_performance_stats(det_performance_all):
+def compute_performance_stats(det_performance_all, configs):
     # extract elements
     iou_scores = []
     center_deviations = []
@@ -125,11 +125,11 @@ def compute_performance_stats(det_performance_all):
     print('precision = ' + str(precision) + ", recall = " + str(recall))    
 
     # serialize intersection-over-union and deviations in x,y,z
-    ious_all = [element for tupl in ious for element in tupl]
+    ious_all = [element for tupl in iou_scores for element in tupl]
     devs_x_all = []
     devs_y_all = []
     devs_z_all = []
-    for tuple in center_devs:
+    for tuple in center_deviations:
         for elem in tuple:
             dev_x, dev_y, dev_z = elem
             devs_x_all.append(dev_x)
@@ -171,4 +171,3 @@ def compute_performance_stats(det_performance_all):
                     verticalalignment='top', bbox=props)
     plt.tight_layout()
     plt.show()
-
