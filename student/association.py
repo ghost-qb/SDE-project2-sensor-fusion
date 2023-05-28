@@ -120,6 +120,7 @@ class Association:
         ############
         # END student code
         ############ 
+        return MHD
     
     def associate_and_update(self, manager, meas_list, KF):
         # associate measurements and tracks
