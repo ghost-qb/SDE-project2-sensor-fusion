@@ -39,7 +39,7 @@ class Track:
         pos_sens_coor[0:3] = meas.z[0:3]
         pos_vhcl_coor = C * pos_sens_coor
         x = np.zeros((6,1))
-        x = pos_vhcl_coor[0:3]
+        x[0:3] = pos_vhcl_coor[0:3]
         self.x = x
        
         # set up position estimation error covariance
