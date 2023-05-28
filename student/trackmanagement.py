@@ -71,7 +71,7 @@ class Track:
         #                [0.0e+00, 0.0e+00, 0.0e+00, 2.5e+03, 0.0e+00, 0.0e+00],
         #                [0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00, 2.5e+03, 0.0e+00],
         #                [0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00, 2.5e+01]])
-        self.state = 'confirmed'
+        self.state = 'initialized'
         self.score = 1. / params.window
         
         ############
@@ -138,7 +138,7 @@ class Trackmanagement:
             if t.state == 'confirmed':
                 if t.score < params.delete_threshold:
                     self.delete_track(t)
-            elif t.P[0,0] < params.max_P or t.P[1,1] < params.max_P:
+            if t.P[0,0] > params.max_P or t.P[1,1] > params.max_P:
                 self.delete_track(t)
         ############
         # END student code
