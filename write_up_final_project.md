@@ -22,7 +22,7 @@
 
 # Camera + Lidar benefits
 - In theory, sensor fusion with multiple source of measurements (camera + lidar) would generate better tracking resutls since we have more data
-- In practice, from the RSME graph shown for lidar-only and lidar+camera tracking, the RMSE is observed to be slightly better but not significantly. 
+- In practice, from the RMSE graph shown for lidar-only and lidar+camera tracking, the RMSE is observed to be slightly better but not significantly. 
 
 # Challenges will a sensor fusion system face in real-life scenarios
 - The system faces challenge when there is an object suddenly appear and disappear, since the EKF and the track management would take a couple of time iteration (i.e. frame) to improve the track score or changing the track state. 
